@@ -13,7 +13,7 @@
     "openshift:dockerbuild": "nodeshift --build.strategy Docker --expose",
     "openshift:dockerbuild:cleanup": "nodeshift undeploy --removeAll --build.strategy Docker",
     "openshift:enable:trace": "nodeshift --deploy.env NODE_OPTIONS='--require ./tracing.js' --dockerImage=registry.access.redhat.com/ubi8/nodejs-18 --expose",
-    "start": "node --trace-gc .",
+    "start": "node --trace-gc --heapsnapshot-signal=SIGUSR2 .",
     "dev": "node . | npx pino-pretty",
     "dev:debug": "DEBUG=* node . "
   },
